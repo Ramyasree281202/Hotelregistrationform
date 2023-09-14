@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Hotel Booking Registration</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets.css">
+    <link rel="shortcut icon" href="5-stars.png" type="image/x-icon">
+</head>
+<body>
+   
+   <section>
+    <h1>Hotel Booking Registration Form</h1>
+   <div class="div1">
+    <form>
+        <label for="customerName">Customer Name&nbsp;:&nbsp;</label>
+        <input type="text" placeholder="Enter your name " id="customerName" name="customerName" required><br><br>
+
+        <label for="checkInDate">Check-in Date : </label>
+        <input type="date" id="checkInDate" name="checkInDate" required><br><br>
+
+        <label for="totalDays">Total No of Days : </label>
+        <input type="number" placeholder="Enter number of days " id="totalDays" name="totalDays" required><br><br>
+
+        <label for="totalPersons">Total No of Persons : </label>
+        <input type="number" placeholder="Enter number of Persons" id="totalPersons" name="totalPersons" required><br><br>
+
+        <label for="roomType">Room Type : </label>
+        <select id="roomType" name="roomType" style="font-weight: bold;">
+            <option value="0">Select</option>
+            <option value="Delux Room">Delux Room(2500/-)</option>
+            <option value="Suite Room">Suite Room(4000/-)</option>
+        </select><br><br>
+
+        <label for="amenities">Amenities : </label>
+        <select id="amenities" name="amenities" style="font-weight: bold;">
+            <option value="0">Select</option> 
+            <option value="AC">AC(1000/-)</option>
+            <option value="Locker">Locker(300/-)</option>
+        </select><br><br>
+
+        <label for="advanceAmount">Advance Payment : </label>
+        <input type="number" placeholder="Enter Advance Amount in Rupees" id="advanceAmount" name="advanceAmount"><br><br>
+        
+        <button type="button"  id="calculateButton" class="btn btn-dark btn-lg download-button"><i class="fab fa-apple"></i>Calculate</button><br><br>
+
+        <label for="balance">Balance Amount : </label>
+        <input type="number" id="balance" name="balance" readonly><br><br>
+
+        <label for="totalRoomCost">Total Room Cost : </label>
+        <input type="number" id="totalRoomCost" name="totalRoomCost" readonly><br><br>
+
+        <label for="totalCost">Total Cost : </label>
+        <input type="number" id="totalCost" name="totalCost" readonly><br><br>
+        
+        <div class="div2">
+            <h2>Additional Charges</h2>
+            <p class="p1">IF PERSONS EXCEEDS  2 THEN PER DAY COST FOR EXTRA PERSON IS 1000/-</p>
+
+            <label for="additionalCost">Additional Cost </label>
+            <input type="number" id="additionalCost" name="additionalCost" readonly><br><br>
+
+            <label for="finalCost">Total Cost </label>
+            <input type="number" id="finalCost" name="finalCost" readonly><br><br>
+
+            <label for="finalBalance">Balance Amount </label>
+            <input type="number" id="finalBalance" name="finalBalance" readonly> <br><br>            
+        </div>
+        <label style="display: inline-block;font-size: 30px;" > <input type="checkbox" id="rules" name="rules" required>&nbsp&nbsp;Customer should follow the rules & regulations</label>
+        <input type="submit" id="submit" value="Register" >
+        <p class="p2">Thank You for visiting <br>Visit Again</p>
+    </form>
+   </div>
+   </section>
+<footer>
+    <script src="index.js" charset="utf-8"></script>
+</footer>
+</body>
+</html>

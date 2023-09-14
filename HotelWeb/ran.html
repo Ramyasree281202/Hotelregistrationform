@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Registration</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h2>Hotel Booking Registration Form</h2>
+    <form id="bookingForm">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required><br><br>
+
+        <label for="checkInDate">Check-in Date:</label>
+        <input type="date" id="checkInDate" name="checkInDate" required><br><br>
+
+        <label for="totalDays">Total No of Days:</label>
+        <input type="number" id="totalDays" name="totalDays" required><br><br>
+
+        <label for="totalPersons">Total No of Persons:</label>
+        <input type="number" id="totalPersons" name="totalPersons" required><br><br>
+
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" name="roomType">
+            <option value="Delux Room">Delux Room</option>
+            <option value="Suite Room">Suite Room</option>
+        </select><br><br>
+
+        <label for="amenities">Amenities:</label>
+        <select id="amenities" name="amenities" multiple>
+            <option value="AC">AC</option>
+            <option value="Locker">Locker</option>
+        </select><br><br>
+
+        <label>Room Rates:</label><br>
+        <label id="deluxRateLabel">Delux Room: 2500/-</label><br>
+        <label id="suiteRateLabel">Suite Room: 4000/-</label><br>
+        <label id="acRateLabel">AC: 1000/-</label><br>
+        <label id="lockerRateLabel">Locker: 300/-</label><br><br>
+
+        <label for="advanceAmount">Advance Payment - Advance Amount:</label>
+        <input type="number" id="advanceAmount" name="advanceAmount"><br><br>
+
+        <label for="balance">Balance Amount:</label>
+        <input type="number" id="balance" name="balance" readonly><br><br>
+
+        <label for="totalRoomCost">Total Room Cost:</label>
+        <input type="number" id="totalRoomCost" name="totalRoomCost" readonly><br><br>
+
+        <label for="totalCost">Total Cost:</label>
+        <input type="number" id="totalCost" name="totalCost" readonly><br><br>
+
+        <button type="button" id="calculateButton">Calculate</button>
+    </form>
+
+    <script>
+        // JavaScript for calculations
+        document.getElementById('calculateButton').addEventListener('click', function () {
+            const totalDays = parseInt(document.getElementById('totalDays').value);
+            const roomType = document.getElementById('roomType').value;
+            const amenities = Array.from(document.getElementById('amenities').selectedOptions).map(option => option.value);
+            let roomCost = 0;
+
+            if (roomType === 'Delux Room') {
+                roomCost = 2500;
+            } else if (roomType === 'Suite Room') {
+                roomCost = 4000;
+            }
+
+            let amenitiesCost = 0;
+            if (amenities.includes('AC')) {
+                amenitiesCost += 1000;
+            }
+            if (amenities.includes('Locker')) {
+                amenitiesCost += 300;
+            }
+
+            const totalRoomCost = roomCost * totalDays;
+            const advanceAmount = parseInt(document.getElementById('advanceAmount').value);
+            const totalCost = totalRoomCost + amenitiesCost;
+
+            document.getElementById('totalRoomCost').value = totalRoomCost;
+            document.getElementById('balance').value = totalCost - advanceAmount;
+            document.getElementById('totalCost').value = totalCost;
+        });
+    </script>
+</body>
+</html>
